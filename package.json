@@ -4,12 +4,18 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start:dev": "SET NODE_ENV=development && nodemon --exec babel-node src/server.js",
-    "start": "babel-node src/server.js",
+    "build": "babel -d ./dist ./src -s --copy-files",
+    "clean": "rm -rf dist",
     "lint:check": "yarn eslint src/**",
-    "lint:fix": "yarn eslint --fix src"
+    "lint:fix": "yarn eslint --fix src",
+    "prod": "NODE_ENV=production && yarn clean && yarn build && node dist/server.js",
+    "start:dev": "SET NODE_ENV=development && nodemon --exec babel-node src/server.js",
+    "start": "yarn prod"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
@@ -21,9 +27,6 @@
     "validator": "^13.1.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "eslint": "^7.3.1",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
@@ -31,5 +34,8 @@
     "eslint-plugin-prettier": "^3.1.4",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5"
+  },
+  "engines": {
+    "node": "12.8.0"
   }
 }
