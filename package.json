@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "SET NODE_ENV=development && nodemon --exec babel-node src/server.js",
+    "start:dev": "SET NODE_ENV=development && nodemon --exec babel-node src/server.js",
+    "start": "babel-node src/server.js",
     "lint:check": "yarn eslint src/**",
     "lint:fix": "yarn eslint --fix src"
   },
