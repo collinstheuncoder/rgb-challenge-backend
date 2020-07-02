@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "babel -d ./dist ./src -s --copy-files",
-    "client": "cd client && yarn client",
+    "client": "cd client && yarn start",
     "heroku-postbuild": "YARN_PRODUCTION=false yarn build && cd client && yarn && yarn build",
     "lint:check": "yarn eslint src/**",
     "lint:fix": "yarn eslint --fix src",
