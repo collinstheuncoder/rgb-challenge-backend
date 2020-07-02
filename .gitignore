@@ -49,5 +49,6 @@ jspm_packages/
 .env.development
 .env.production
 
-# server/client build output
+# server build & client
 dist/
+client/
